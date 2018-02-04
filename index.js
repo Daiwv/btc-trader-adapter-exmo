@@ -60,7 +60,7 @@ class ExmoAdapter {
             const data = {};
             Object.keys(ticker).map((tick) => tick)
                 .filter((tick) => pairs.indexOf(tick.toLowerCase()) > -1).map((tick) => {
-                data[tick.toLowerCase()] = {
+                data[tick] = {
                     avg: ticker[tick].avg,
                     high: ticker[tick].high,
                     low: ticker[tick].low,

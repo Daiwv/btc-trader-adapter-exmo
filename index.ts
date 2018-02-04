@@ -70,7 +70,7 @@ class ExmoAdapter implements IExchangeTradeApi, IExchangePublicApi {
         const data: { [index: string]: ITickerValue } = {};
         Object.keys(ticker).map((tick) => tick)
             .filter((tick) => pairs.indexOf(tick.toLowerCase()) > -1).map((tick: string) => {
-                data[tick.toLowerCase()] = {
+                data[tick] = {
                     avg: ticker[tick].avg,
                     high: ticker[tick].high,
                     low: ticker[tick].low,
