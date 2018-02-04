@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "tsc && tslint --project=tsconfig.json && jest --verbose --coverage",
+    "test": "tsc && tslint --project tsconfig.json",
     "watch:test": "jest --watch"
   },
   "repository": {
