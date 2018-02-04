@@ -51,6 +51,7 @@ class ExmoAdapter {
     }
     tickers(pairs) {
         return __awaiter(this, void 0, void 0, function* () {
+            pairs = pairs.map((p) => p.toLowerCase());
             const msg = yield fetch("https://api.exmo.com/v1/ticker/");
             if (msg.status !== 200) {
                 throw new Error(yield msg.text());
@@ -58,8 +59,8 @@ class ExmoAdapter {
             const ticker = yield msg.json();
             const data = {};
             Object.keys(ticker).map((tick) => tick)
-                .filter((tick) => pairs.indexOf(tick.toLowerCase().replace("rub", "rur")) > -1).map((tick) => {
-                data[tick.toLowerCase().replace("rub", "rur")] = {
+                .filter((tick) => pairs.indexOf(tick.toLowerCase()) > -1).map((tick) => {
+                data[tick.toLowerCase()] = {
                     avg: ticker[tick].avg,
                     high: ticker[tick].high,
                     low: ticker[tick].low,

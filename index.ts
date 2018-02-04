@@ -61,6 +61,7 @@ class ExmoAdapter implements IExchangeTradeApi, IExchangePublicApi {
         };
     }
     public async tickers(pairs: string[]) {
+        pairs = pairs.map((p) => p.toLowerCase());
         const msg = await fetch("https://api.exmo.com/v1/ticker/");
         if (msg.status !== 200) {
             throw new Error(await msg.text());
@@ -68,8 +69,8 @@ class ExmoAdapter implements IExchangeTradeApi, IExchangePublicApi {
         const ticker: { [index: string]: ITicker } = await msg.json();
         const data: { [index: string]: ITickerValue } = {};
         Object.keys(ticker).map((tick) => tick)
-            .filter((tick) => pairs.indexOf(tick.toLowerCase().replace("rub", "rur")) > -1).map((tick: string) => {
-                data[tick.toLowerCase().replace("rub", "rur")] = {
+            .filter((tick) => pairs.indexOf(tick.toLowerCase()) > -1).map((tick: string) => {
+                data[tick.toLowerCase()] = {
                     avg: ticker[tick].avg,
                     high: ticker[tick].high,
                     low: ticker[tick].low,
