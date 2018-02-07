@@ -73,6 +73,8 @@ class ExmoAdapter implements IExchangeTradeApi, IExchangePublicApi {
                 data[tick] = {
                     avg: ticker[tick].avg,
                     high: ticker[tick].high,
+                    buy: ticker[tick].buy_price,
+                    sell: ticker[tick].sell_price,
                     low: ticker[tick].low,
                     last: ticker[tick].last_trade,
                     updated: ticker[tick].updated,

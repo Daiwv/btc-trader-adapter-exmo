@@ -27,7 +27,7 @@
     "typescript": "^2.7.1"
   },
   "dependencies": {
-    "btc-trader": "^0.0.3"
+    "btc-trader": "^0.0.5"
   },
   "peerDependencies": {
     "isomorphic-fetch": "^2.2.1"
